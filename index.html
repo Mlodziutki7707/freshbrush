@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Szczotka FreshBrush™</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <img src="images/logo.png" class="logo" alt="FreshBrush">
+  <div class="cart-btn" onclick="toggleCart()">
+    🛒 Koszyk <span id="cartCount">0</span>
+  </div>
+</header>
+
+<!-- KOSZYK -->
+<div class="cart-panel" id="cartPanel">
+  <h3>Koszyk</h3>
+  <ul id="cartItems"></ul>
+</div>
+
+<main class="container">
+
+<section class="product">
+
+  <!-- GALERIA -->
+  <div class="gallery">
+    <img id="mainImage" src="images/brush1.png">
+    <div class="thumbs">
+      <img src="images/brush1.png" onclick="changeImage(this)">
+      <img src="images/brush2.png" onclick="changeImage(this)">
+      <img src="images/brush3.png" onclick="changeImage(this)">
+    </div>
+  </div>
+
+  <!-- INFO -->
+  <div class="info">
+    <h1>Szczotka FreshBrush™</h1>
+    <div class="rating">⭐⭐⭐⭐⭐ 4,9/5 (900+ opinii)</div>
+
+    <div class="price">
+      <span class="old">199,99 zł</span>
+      <span class="new" id="price">99,99 zł</span>
+    </div>
+
+    <!-- KOLOR -->
+    <div class="option">
+      <p>Kolor szczotki</p>
+      <div class="choices" id="colors">
+        <div class="choice active" data-color="Biały">Biały</div>
+        <div class="choice" data-color="Szary">Szary</div>
+      </div>
+    </div>
+
+    <!-- ILOŚĆ -->
+    <div class="option">
+      <p>Kup więcej & Oszczędzaj</p>
+
+      <div class="buy-option active" data-qty="1" data-price="99.99">
+        <strong>Kup 1</strong><br>+24 wkłady GRATIS
+        <span>99,99 zł</span>
+      </div>
+
+      <div class="buy-option" data-qty="2" data-price="179.98">
+        <span class="badge">-10%</span>
+        <strong>Kup 2</strong><br>+48 wkładów GRATIS
+        <span>179,98 zł</span>
+      </div>
+    </div>
+
+    <button class="cta" onclick="addToCart()">DODAJ DO KOSZYKA</button>
+  </div>
+
+</section>
+
+</main>
+
+<!-- OPINIE – NIESKOŃCZONA PĘTLA -->
+<section class="reviews">
+  <div class="review-track">
+    <div class="review">⭐⭐⭐⭐⭐ Mega higieniczne</div>
+    <div class="review">⭐⭐⭐⭐⭐ W końcu bez dotykania</div>
+    <div class="review">⭐⭐⭐⭐⭐ Najlepsza szczotka</div>
+    <div class="review">⭐⭐⭐⭐⭐ Kupione po TikToku</div>
+    <div class="review">⭐⭐⭐⭐⭐ Polecam każdemu</div>
+
+    <!-- DUPLIKAT (KLUCZ DO PĘTLI) -->
+    <div class="review">⭐⭐⭐⭐⭐ Mega higieniczne</div>
+    <div class="review">⭐⭐⭐⭐⭐ W końcu bez dotykania</div>
+    <div class="review">⭐⭐⭐⭐⭐ Najlepsza szczotka</div>
+    <div class="review">⭐⭐⭐⭐⭐ Kupione po TikToku</div>
+    <div class="review">⭐⭐⭐⭐⭐ Polecam każdemu</div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
