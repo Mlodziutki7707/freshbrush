@@ -1,6 +1,7 @@
-let cart = [];
 let selectedQty = 1;
+let cartCount = 0;
 
+// wybór koloru
 document.querySelectorAll('.choice').forEach(c => {
   c.onclick = () => {
     document.querySelectorAll('.choice').forEach(x => x.classList.remove('active'));
@@ -8,27 +9,19 @@ document.querySelectorAll('.choice').forEach(c => {
   };
 });
 
+// wybór ilości
 document.querySelectorAll('.buy-option').forEach(b => {
   b.onclick = () => {
     document.querySelectorAll('.buy-option').forEach(x => x.classList.remove('active'));
     b.classList.add('active');
     selectedQty = b.dataset.qty;
-    document.getElementById("price").innerText =
-      selectedQty == 2 ? "179,98 zł" : "99,99 zł";
   };
 });
 
-function changeImage(img) {
-  document.getElementById("mainImage").src = img.src;
-}
-
 function addToCart() {
   const color = document.querySelector('.choice.active').dataset.color;
-  const qty = selectedQty;
 
-  const productUrl = "https://freshbrush-8941.myshopify.com/cart/add?id=";
-
-  const variants = {
+ const variants = {
     "Biały": {
       1: "52925699391825",
       2: "52925699424593"
@@ -39,22 +32,28 @@ function addToCart() {
     }
   };
 
-  const variantId = variants[color][qty];
-  window.location.href = productUrl + variantId + "&quantity=1";
+  const variantId = variants[color][selectedQty];
+
+  fetch("https://freshbrush-8941.myshopify.com/cart/add.js", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      id: variantId,
+      quantity: 1
+    })
+  })
+  .then(res => res.json())
+  .then(() => {
+    cartCount++;
+    document.getElementById("cartCount").innerText = cartCount;
+    document.getElementById("cartPanel").style.display = "block";
+  })
+  .catch(err => console.error(err));
 }
 
-function updateCart() {
-  document.getElementById("cartCount").innerText = cart.length;
-  const list = document.getElementById("cartItems");
-  list.innerHTML = "";
-  cart.forEach(i => {
-    const li = document.createElement("li");
-    li.innerText = i;
-    list.appendChild(li);
-  });
-}
-
-function toggleCart() {
-  const panel = document.getElementById("cartPanel");
-  panel.style.display = panel.style.display === "block" ? "none" : "block";
+// PRZEJŚCIE DO KASY
+function goToCheckout() {
+  window.location.href = "https://freshbrush-8941.myshopify.com/checkout";
 }
