@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>FreshBrush – Higiena bez dotykania</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cart {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cart span {
+  background: #00aaff;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-left: 6px;
+  font-size: 12px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.product {
+  display: flex;
+  gap: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.thumbs img {
+  width: 70px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.info {
+  max-width: 420px;
+}
+
+.price {
+  font-size: 26px;
+  color: #00aaff;
+}
+
+.old {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 16px;
+}
+
+.options {
+  margin: 20px 0;
+}
+
+.option-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.color-options, .qty-options {
+  display: flex;
+  gap: 10px;
+}
+
+.option-box {
+  padding: 10px 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option-box.active {
+  border-color: #00aaff;
+  background: #eef8ff;
+}
+
+.cta {
+  background: #00aaff;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cart-panel {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 280px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  display: none;
+}
+
+.cart-panel h3 {
+  margin-top: 0;
+}
+
+.reviews {
+  overflow: hidden;
+  background: #f7f7f7;
+  padding: 20px 0;
+  margin-top: 60px;
+}
+
+.review-track {
+  display: flex;
+  animation: scroll 25s linear infinite;
+}
+
+.review {
+  min-width: 300px;
+  text-align: center;
+  font-size: 14px;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@media(max-width: 768px) {
+  .product { flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <strong>FreshBrush</strong>
+  <div class="cart" onclick="toggleCart()">🛒 Koszyk <span id="cartCount">0</span></div>
+</header>
+
+<div class="cart-panel" id="cartPanel">
+  <h3>Koszyk</h3>
+  <ul id="cartItems"></ul>
+</div>
+
+<div class="container">
+  <div class="product">
+
+    <!-- GALERIA -->
+    <div class="gallery">
+      <img id="mainImg" src="images/brush1.png">
+      <div class="thumbs">
+        <img src="images/brush1.png" onclick="changeImg(this)">
+        <img src="images/brush2.png" onclick="changeImg(this)">
+        <img src="images/brush3.png" onclick="changeImg(this)">
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div class="info">
+      <h1>Szczotka FreshBrush™</h1>
+      ⭐⭐⭐⭐⭐ 4,9/5 (900+ opinii)
+
+      <div class="price">
+        <span class="old">199,99 zł</span><br>
+        99,99 zł
+      </div>
+
+      <div class="options">
+        <div class="option-title">Kolor szczotki:</div>
+        <div class="color-options">
+          <div class="option-box active" onclick="selectColor(this)">Biały</div>
+          <div class="option-box" onclick="selectColor(this)">Szary</div>
+        </div>
+      </div>
+
+      <div class="options">
+        <div class="option-title">Ilość:</div>
+        <div class="qty-options">
+          <div class="option-box active" onclick="selectQty(this)">Kup 1</div>
+          <div class="option-box" onclick="selectQty(this)">Kup 2</div>
+        </div>
+      </div>
+
+      <button class="cta" onclick="addToCart()">DODAJ DO KOSZYKA</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- OPINIE -->
+<div class="reviews">
+  <div class="review-track">
+    <div class="review">⭐⭐⭐⭐⭐ Mega higiena – polecam</div>
+    <div class="review">⭐⭐⭐⭐⭐ W końcu nie dotykam brudu</div>
+    <div class="review">⭐⭐⭐⭐⭐ Kupione po TikToku</div>
+    <div class="review">⭐⭐⭐⭐⭐ Najlepszy zakup do łazienki</div>
+    <div class="review">⭐⭐⭐⭐⭐ Rewelacja</div>
+  </div>
+</div>
+
+<script>
+let cart = [];
+
+function changeImg(el) {
+  document.getElementById("mainImg").src = el.src;
+}
+
+function selectColor(el) {
+  document.querySelectorAll('.color-options .option-box')
+    .forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function selectQty(el) {
+  document.querySelectorAll('.qty-options .option-box')
+    .forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function addToCart() {
+  const color = document.querySelector('.color-options .active').innerText;
+  const qty = document.querySelector('.qty-options .active').innerText;
+  cart.push(`FreshBrush – ${color} – ${qty}`);
+  updateCart();
+}
+
+function updateCart() {
+  const list = document.getElementById("cartItems");
+  list.innerHTML = "";
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.innerText = item;
+    list.appendChild(li);
+  });
+  document.getElementById("cartCount").innerText = cart.length;
+}
+
+function toggleCart() {
+  const panel = document.getElementById("cartPanel");
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
