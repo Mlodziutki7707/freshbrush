@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higiena na Nowym Poziomie | Innowacyjna Szczotka do WC</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= HERO SECTION ================= -->
+<header class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <h1>Higiena na Nowym Poziomie 🚿</h1>
+            <p>
+                Koniec z brudnymi szczotkami do WC.  
+                Jednorazowe końcówki, zero dotykania, maksymalna czystość.
+            </p>
+            <a href="#oferta" class="btn-primary">Sprawdź Ofertę Specjalną</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://ae01.alicdn.com/kf/S5c8f27b1ef7748b9a4f65e2fa4b6a9c9y.jpg" alt="Szczotka do WC w użyciu">
+        </div>
+    </div>
+</header>
+
+<!-- ================= OPIS PRODUKTU ================= -->
+<section class="section">
+    <div class="container">
+        <h2>Dlaczego warto?</h2>
+
+        <p class="section-desc">
+            Nasza innowacyjna szczotka do WC z jednorazowymi końcówkami
+            została stworzona z myślą o maksymalnej higienie i wygodzie.
+        </p>
+
+        <ul class="benefits">
+            <li>✔ Jednorazowe końcówki – maksymalna higiena</li>
+            <li>✔ Bezdotykowa wymiana głowicy</li>
+            <li>✔ Skuteczne czyszczenie bez rozchlapywania</li>
+            <li>✔ Nowoczesny design</li>
+            <li>✔ Dostępna w kolorze białym i szarym</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ================= OFERTA / WARIANTY ================= -->
+<section class="section highlight" id="oferta">
+    <div class="container">
+        <h2>Wybierz Swój Zestaw</h2>
+
+        <div class="products">
+
+            <!-- PRODUKT 1 -->
+            <div class="product-card">
+                <h3>Szczotka + 18 głowic</h3>
+                <p class="price">
+                    <span class="old">69,99 zł</span>
+                    <strong>59,99 zł / szt. (2 szt.)</strong>
+                </p>
+
+                <label>Kolor:</label>
+                <select>
+                    <option>Biały</option>
+                    <option>Szary</option>
+                </select>
+
+                <button onclick="addToCart()">Kup Teraz</button>
+            </div>
+
+            <!-- PRODUKT 2 -->
+            <div class="product-card popular">
+                <span class="badge">Najczęściej wybierane</span>
+                <h3>Szczotka + 24 głowice</h3>
+                <p class="price">
+                    <span class="old">79,99 zł</span>
+                    <strong>69,99 zł / szt. (2 szt.)</strong>
+                </p>
+
+                <label>Kolor:</label>
+                <select>
+                    <option>Biały</option>
+                    <option>Szary</option>
+                </select>
+
+                <button onclick="addToCart()">Kup Teraz</button>
+            </div>
+
+            <!-- PRODUKT 3 -->
+            <div class="product-card">
+                <h3>Szczotka + 30 głowic</h3>
+                <p class="price">
+                    <span class="old">89,99 zł</span>
+                    <strong>79,99 zł / szt. (2 szt.)</strong>
+                </p>
+
+                <label>Kolor:</label>
+                <select>
+                    <option>Biały</option>
+                    <option>Szary</option>
+                </select>
+
+                <button onclick="addToCart()">Kup Teraz</button>
+            </div>
+
+        </div>
+
+        <!-- DODATKOWE GŁOWICE -->
+        <div class="addons">
+            <h3>Dodatkowe głowice</h3>
+            <div class="addon-items">
+                <button onclick="addToCart()">24 głowice – 29,99 zł</button>
+                <button onclick="addToCart()">36 głowic – 39,99 zł</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= OPINIE ================= -->
+<section class="section">
+    <div class="container">
+        <h2>Opinie Klientów</h2>
+
+        <div class="reviews">
+            <div class="review">⭐⭐⭐⭐⭐<br>„Genialny produkt, totalna zmiana w łazience.”</div>
+            <div class="review">⭐⭐⭐⭐⭐<br>„Mega higieniczne i bardzo wygodne.”</div>
+            <div class="review">⭐⭐⭐⭐⭐<br>„Kupione po TikToku – nie żałuję!”</div>
+        </div>
+
+        <p class="social-proof">Ponad <strong>1000+</strong> zadowolonych klientów</p>
+    </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section highlight">
+    <div class="container">
+        <h2>FAQ</h2>
+
+        <details>
+            <summary>Czy końcówki są jednorazowe?</summary>
+            <p>Tak, każda głowica jest używana tylko raz.</p>
+        </details>
+
+        <details>
+            <summary>Jak długo trwa wysyłka?</summary>
+            <p>Średni czas dostawy to 7–12 dni roboczych.</p>
+        </details>
+
+        <details>
+            <summary>Czy mogę zwrócić produkt?</summary>
+            <p>Tak, zgodnie z regulaminem – 14 dni na zwrot.</p>
+        </details>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 CleanBrush</p>
+        <div class="footer-links">
+            <a href="#">Polityka Prywatności</a>
+            <a href="#">Regulamin</a>
+            <a href="#">Kontakt</a>
+        </div>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
